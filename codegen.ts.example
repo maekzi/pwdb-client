@@ -1,0 +1,21 @@
+import type { CodegenConfig } from "@graphql-codegen/cli";
+
+const config: CodegenConfig = {
+  overwrite: true,
+  schema: "###GRAPHQL_URL_HERE###",
+  documents: "./src/**/*.ts",
+  pluckConfig: {
+    modules: [
+      {
+        name: "graphql-request",
+      },
+    ],
+  },
+  generates: {
+    "./src/types/pwdbApiTypes.ts": {
+      plugins: ["typescript", "typescript-operations"],
+    },
+  },
+};
+
+export default config;
