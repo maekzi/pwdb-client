@@ -31,3 +31,6 @@ yarn-error.log*
 # codegen and generated types
 /types/pwdbApiTypes.ts
 codegen.ts
+
+# i18n
+/extracted-lang

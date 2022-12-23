@@ -49,6 +49,20 @@ Runs npm audit but checking for Production mode only.
 Generates all Types from our Graphql Api. You can configure this in the `codegen.ts` file.
 Configuration documentation can be found [here](https://the-guild.dev/graphql/codegen/docs/config-reference/codegen-config)
 
+### `npm run intl_extract`
+[`Message Extraction Documentation`](https://formatjs.io/docs/getting-started/message-extraction)
+
+### `npm run intl_compile`
+[`Message Compilation and Distribution`](https://formatjs.io/docs/getting-started/message-distribution)
+
+## i18n
+
+### `npm run intl_extract -- 'src/**/*.ts*' --ignore='**/*.d.ts' --out-file extracted-lang/en-US.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'``
+Extract en-US file from all declared Messages
+
+### `npm run intl_compile -- extracted-lang/en.json --ast --out-file lang/en-US.json`
+Compile Messages into AST react-intl consumable format
+
 ## MISC
 
 ### [`npm i -g npm-check-updates`](https://www.npmjs.com/package/npm-check-updates)
