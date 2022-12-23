@@ -22,6 +22,7 @@ import { FaRegSun, FaRegMoon, FaSignOutAlt } from 'react-icons/fa';
 import type { User } from '../../types/pwdbApiTypes';
 
 import logo from './logo.png';
+import LanguageSwitcher from '../i18n/LanguageSwitcher';
 
 interface NavBarProps extends FlexProps {
   onOpen: () => void;
@@ -55,6 +56,7 @@ const NavBar = ({ onOpen, user, logout, ...rest }: NavBarProps) => {
       </Box>
 
       <HStack spacing={{ base: '0', md: '6' }}>
+        <LanguageSwitcher />
         <IconButton
           onClick={toggleColorMode}
           size="lg"
