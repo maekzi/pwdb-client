@@ -6,8 +6,12 @@ interface I18nState {
   language: string;
 }
 
+const localLanguage = localStorage.getItem('i18n-selected-language');
+if (localLanguage === null) {
+  localStorage.setItem('i18n-selected-language', i18n.getDefaultLocale());
+}
 const initialState: I18nState = {
-  language: i18n.getDefaultLocale(),
+  language: localLanguage !== null ? localLanguage : i18n.getDefaultLocale()
 };
 
 const i18nSlice = createSlice({
