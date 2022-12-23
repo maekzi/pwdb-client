@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import {
   Route,
   RouterProvider,
@@ -5,7 +7,7 @@ import {
   createRoutesFromElements,
   Outlet
 } from 'react-router-dom';
-import { Box } from '@chakra-ui/react';
+import { IntlProvider } from 'react-intl';
 
 import { Login } from './features/auth/Login';
 import { PrivateOutlet } from './utils/PrivateOutlet';
@@ -16,11 +18,16 @@ import ProjectDetail from './features/projects/ProjectDetail';
 import ProjectCreate from './features/projects/ProjectCreate';
 import NotFound from './utils/NotFound';
 
+import { selectCurrentLanguage } from './features/i18n/i18nSlice';
+import i18n from './app/services/i18n';
+
 /**
  * ToDo: Create Dashboard, Project View, Credential View
  * @returns
  */
 function App() {
+  const selectedLanguageCode = useSelector(selectCurrentLanguage);
+  const [messages, setMessages] = useState();
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
@@ -39,10 +46,16 @@ function App() {
     )
   );
 
+  useEffect(() => {
+    i18n.getMessages(selectedLanguageCode).then(data => {
+      setMessages(data)
+    });
+  }, [selectedLanguageCode])
+
   return (
-    <Box>
+    <IntlProvider locale={selectedLanguageCode} defaultLocale="en-US" messages={messages}>
       <RouterProvider router={router} />
-    </Box>
+    </IntlProvider>
   );
 }
 
