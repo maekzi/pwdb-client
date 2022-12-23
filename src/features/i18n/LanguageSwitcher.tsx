@@ -17,7 +17,7 @@ const LanguageSwitcher = () => {
       }}
     >
       <option value="en-US">
-        <FormattedMessage defaultMessage="English" description="English Language Name" />
+        <FormattedMessage defaultMessage="English" description="Select English language" />
       </option>
       <option value="de-DE">
         <FormattedMessage defaultMessage="German" description="German Language Name" />
