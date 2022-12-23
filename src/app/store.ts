@@ -2,11 +2,13 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 
 import { pwdbAPI } from "./services/pwdbAPI";
 import authReducer from "../features/auth/authSlice";
+import i18nReducer from "../features/i18n/i18nSlice";
 
 export const store = configureStore({
   reducer: {
     [pwdbAPI.reducerPath]: pwdbAPI.reducer,
     auth: authReducer,
+    i18n: i18nReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(pwdbAPI.middleware),
