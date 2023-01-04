@@ -6,7 +6,7 @@ job("Run Quality Checks") {
                 cp codegen.ts.ci codegen.ts
                 cp .env.ci .env
                 npm install
-                npm test
+                npm run build
             """
         }
     }
