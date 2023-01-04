@@ -8,9 +8,13 @@
 - `[TD-TESTS]` Implement Tests
 - `[TS-GRAPHQL]` Check the possibility for Graphql request schemas and load them from graphql files instead of having them inside the api slice
 - `[TD-HOUSEKEEPING]` Tidy up the App.
-- Whatever you thing we could improve.
+- Whatever you think we could improve.
 
 ## Setup
+
+### Fast local setup with docker:
+- https://github.com/casey/just/
+- prefix all following commands with `just`
 
 0. `npm install`
 1. Make sure your Backend is set up and running
